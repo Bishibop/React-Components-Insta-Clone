@@ -6,7 +6,7 @@ import "./Posts.css";
 // pass the data from App.js down as props then map through the data
 const PostsPage = (props) => {
   const posts = props.posts.map(post =>
-    <Post post={post}/>
+    <Post key={post.username + post.timestamp} post={post}/>
   )
 
   return (
@@ -17,4 +17,3 @@ const PostsPage = (props) => {
 };
 
 export default PostsPage;
-
