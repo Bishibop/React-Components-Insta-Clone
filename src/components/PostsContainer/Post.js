@@ -11,6 +11,16 @@ const Post = props => {
   // set up state for the likes
   const [likes, setLikes] = useState(props.post.likes);
   const [isLiked, setIsLiked] = useState(false);
+  
+  function likeToggle() {
+    if (isLiked) {
+      setIsLiked(false);
+      setLikes(likes - 1);
+    } else {
+      setIsLiked(true);
+      setLikes(likes + 1);
+    }
+  }
 
   return (
     <div className="post-border">
@@ -30,10 +40,11 @@ const Post = props => {
       <LikeSection
         likes={likes}
         isLiked={isLiked}
-        setLikes={setLikes}
-        setIsLiked={setIsLiked}
-        //Do I need to send down this function if I'm sending state?
-        //toggleLike={callback function for like button}
+        //You can either pass down the setters or a toggle function
+        //What is the React Way?
+        //setLikes={setLikes}
+        //setIsLiked={setIsLiked}
+        likeToggle={likeToggle}
       />
       <CommentSection
         postId={props.post.imageUrl}
