@@ -29,7 +29,7 @@ const CommentSection = props => {
   }
 
   return (
-    <div>
+    <div className="comments-section">
       {comments.map(comment => 
         <Comment key={comment.username + Math.random()} comment={comment} />
       )}
